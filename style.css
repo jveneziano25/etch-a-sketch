@@ -47,9 +47,9 @@ button {
 }
 .dialContainer {
     display: flex;
-    justify-content: space-between;
-    margin: 70px 25px 0 25px;
-
+    justify-content: space-around;
+    margin: 70px 0 0 0;
+    gap: 300px;
 }
 .footer {
     color: white;
