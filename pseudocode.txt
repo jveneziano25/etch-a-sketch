@@ -1,0 +1,12 @@
+create grid
+    function to create square div
+    put in loop to create 256 divs
+    use flexbox to arrange the rows in a 16x16 layout
+    style the boxes using css 
+
+make initial divs change color based on mouseover events
+provide functionality for user to select the grid size with a limit of 100 per row
+    add button to top of screen that triggers prompt for user to enter a number
+    remove initial container
+    generate new container of same size
+    generate the square divs again using the entered number
