@@ -19,6 +19,9 @@ body {
 
 .header {
     margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
 }
 #container {
     display: flex;
@@ -26,7 +29,7 @@ body {
     width: 800px;
     margin-bottom: -50px;
 }
-.initial {
+.squares {
     border: 1px #c4baa2 solid;
     background-color: #b3aa94;
     width: 50px;
@@ -35,7 +38,9 @@ body {
     box-sizing: border-box;
     flex-shrink: 0;
 }
-
+.hovered {
+    background-color: black;
+}
 button {
     border-radius: 12px;
     border-style: none;
