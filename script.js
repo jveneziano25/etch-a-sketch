@@ -9,9 +9,12 @@ const gridArea = document.querySelector("#container");
 gridArea.style.width = `${gridSide}px`;
 gridArea.style.height = `${gridSide}px`;
 
+let sixteenBySixteenCalled = false;
+let customGridCalled = false;
 /*Creates the square divs by iterating through the loop based on the number 
 of rows times the columns and sets the square div height and width accordingly.*/
-function sixteenBySixteen() {
+
+function sixteenBySixteen() { 
     for (let i = 0; i < (rows * cols); i++) {
         let cells = document.createElement("div");
         cells.style.width = `${gridSide / cols}px`;
@@ -25,6 +28,7 @@ function sixteenBySixteen() {
         })
     }
     initBtn.removeEventListener("click", sixteenBySixteen);
+    sixteenBySixteenCalled = true;
 }
 
 
@@ -42,22 +46,37 @@ function customGrid(input) {
     //Checks if user input is between 1 and 100
     if (input >= 1 && input <= (100 * 100)){
         let i = 255;
-        while (i >= 0) {
-            let removeSquares = document.getElementsByClassName("squares");
-            removeSquares[0].remove();
-            i--;
-        }
-        for (let num = 0; num < (rows * cols); num++) {
-            let cells = document.createElement("div");
-            cells.style.width = `${gridSide / cols}px`;
-            cells.style.height = `${gridSide / rows}px`;
-            cells.classList.add("squares");
-            cells.textContent = '';
-            gridArea.appendChild(cells);
-
-            cells.addEventListener("mouseenter", () => {
-                cells.style.backgroundColor = 'black';
-            });
+        if (sixteenBySixteenCalled === true){
+            while (i >= 0) {
+                let removeSquares = document.getElementsByClassName("squares");
+                removeSquares[0].remove();
+                i--;
+            }
+            for (let num = 0; num < (rows * cols); num++) {
+                let cells = document.createElement("div");
+                cells.style.width = `${gridSide / cols}px`;
+                cells.style.height = `${gridSide / rows}px`;
+                cells.classList.add("squares");
+                cells.textContent = '';
+                gridArea.appendChild(cells);
+    
+                cells.addEventListener("mouseenter", () => {
+                    cells.style.backgroundColor = 'black';
+                });
+            }
+        } else {
+            for (let num = 0; num < (rows * cols); num++) {
+                let cells = document.createElement("div");
+                cells.style.width = `${gridSide / cols}px`;
+                cells.style.height = `${gridSide / rows}px`;
+                cells.classList.add("squares");
+                cells.textContent = '';
+                gridArea.appendChild(cells);
+    
+                cells.addEventListener("mouseenter", () => {
+                    cells.style.backgroundColor = 'black';
+                });
+            }
         }
     }
     else {
@@ -86,7 +105,5 @@ initBtn.addEventListener("click", createDials);
 
 let inputBtn = document.getElementById("gridSize");
 inputBtn.addEventListener("click", customGrid);
-
-
-
+inputBtn.addEventListener("click", createDials);
 
