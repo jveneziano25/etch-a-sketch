@@ -12,6 +12,12 @@ body {
     color: white;
     text-shadow: -7px 4px rgba(60, 60, 60, 0.562); 
 }
+.instructions {
+    color: white;
+    font-size: 11px;
+    margin-top: -20px;
+    text-shadow: -2px 4px rgba(60, 60, 60, 0.562); 
+}
 #centerGrid {
     display: flex;
     justify-content: center;
